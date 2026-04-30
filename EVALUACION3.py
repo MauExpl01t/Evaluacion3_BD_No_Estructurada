@@ -1,3 +1,4 @@
+
 import pymongo
 from pymongo.errors import ConnectionFailure
 
@@ -16,7 +17,7 @@ def conectar_db():
         print("Error: No se pudo conectar a MongoDB. Asegúrate de que el servicio esté activo.")
         return None
 
-# 1. FUNCIONALIDAD: BÚSQUEDA (15 ptos)
+# 1. FUNCION: BÚSQUEDA 
 def buscar_persona(coleccion):
     rut_buscado = input("\nIngrese el RUT a buscar: ").strip()
     
@@ -32,7 +33,7 @@ def buscar_persona(coleccion):
     else:
         print("El documento a buscar no existe")
 
-# 2. FUNCIONALIDAD: GUARDAR (15 ptos)
+# 2. FUNCION: GUARDAR 
 def guardar_persona(coleccion):
     rut = input("\nIngrese el nuevo RUT: ").strip()
     
@@ -53,7 +54,7 @@ def guardar_persona(coleccion):
         except ValueError:
             print("Error: La edad debe ser un número.")
 
-# 3. FUNCIONALIDAD: ACTUALIZAR (15 ptos)
+# 3. FUNCION: ACTUALIZAR 
 def actualizar_persona(coleccion):
     rut = input("\nIngrese el RUT del registro a actualizar: ").strip()
     
@@ -74,7 +75,7 @@ def actualizar_persona(coleccion):
         except ValueError:
             print("Error: La edad debe ser un número.")
 
-# 4. FUNCIONALIDAD: ELIMINAR (15 ptos)
+# 4. FUNCION: ELIMINAR 
 def eliminar_persona(coleccion):
     rut = input("\nIngrese el RUT del registro a eliminar: ").strip()
     
@@ -90,7 +91,7 @@ def eliminar_persona(coleccion):
         coleccion.delete_one({"_id": registro["_id"]})
         print("El documento fue eliminado correctamente")
 
-# --- MENÚ DE CONTROL ---
+### MENU DE COMANDOS###
 def menu_principal():
     coleccion = conectar_db()
     if coleccion is None: return
